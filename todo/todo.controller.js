@@ -40,7 +40,15 @@ async function update(req, res){
     const params = req.params;
     const body = req.body;
     const { id } = params;
-
+    const validate = validations.todoUpdateValidation(req.body)
+    if(validate instanceof Array){
+        res.status(422).json({error: validate})
+        return
+    }
+    const updated = await service.update(+id, body)
+    if(updated){
+        res.status(200).send(updated)
+    }
 }
 
 // routes

@@ -1,5 +1,11 @@
 const Todo = require('./todo.schema')
 
+
+/**
+ * 
+ * @param { object } body 
+ * @returns 
+ */
 async function create(body){
    console.log('servicio',body)
    const newTodo = new Todo(body)
@@ -8,6 +14,11 @@ async function create(body){
    return result
 }
 
+/**
+ * 
+ * @param { number } id 
+ * @returns 
+ */
 async function findOne(id){
    console.log(id)
    const codigo = parseInt(id)
@@ -15,8 +26,14 @@ async function findOne(id){
    return todo
 }
 
+/**
+ * 
+ * @param { number } id 
+ * @param { object } data 
+ */
 async function update(id,data){
-   
+   const updated = await Todo.findOneAndUpdate({codigo:id},data,{new: true})
+   return updated
 }
 
 async function findAll(){
@@ -26,5 +43,6 @@ async function findAll(){
  module.exports = {
     create,
     findOne,
-    findAll
+    findAll,
+    update
  }

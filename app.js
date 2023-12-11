@@ -53,13 +53,9 @@ async function main() {
 //.then(()=>console.info('Conectado a mongodb.....'))
 //.catch(error=>console.error('error al conectar a la base de datos', error));
 
-  const AutoIncrement = AutoIncrementFactory(mongoConection);
 
   app.listen(PORT, () => {
     console.log(`Server listen ${PORT}`)
   })
-  //Todo: await base de dato  s
-  //Todo: inicio de nuestro server
-  //console.log(envs.PORT)
-  // console.log(envs)
+ 
 }
