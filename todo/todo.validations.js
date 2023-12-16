@@ -8,7 +8,6 @@ const validateRequest = require('../middleware/validate_request');
 function todoValidation(todo) {
     
     const schema = Joi.object({
-        codigo: Joi.number().required(),
         titulo: Joi.string().required(),
         descripcion: Joi.string().required(),
         estado: Joi.string().required()

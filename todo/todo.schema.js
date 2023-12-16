@@ -5,7 +5,6 @@ const AutoIncrement = require('mongoose-sequence')(mongoose);
 const Schema = mongoose.Schema;
 
 const TodoSchema = new Schema({
-    codigo: { type: Number },
     titulo: {type: String, required: true},
     descripcion: {type: String, required: true },
 

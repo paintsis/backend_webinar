@@ -21,8 +21,8 @@ async function create(body){
  */
 async function findOne(id){
    console.log(id)
-   const codigo = parseInt(id)
-   const todo = await Todo.findOne({ codigo },{_id:0, created_at:0, updated_at: 0})
+   //const codigo = (id)
+   const todo = await Todo.findById( id ,{_id:0, created_at:0, updated_at: 0})
    return todo
 }
 
@@ -32,12 +32,12 @@ async function findOne(id){
  * @param { object } data 
  */
 async function update(id,data){
-   const updated = await Todo.findOneAndUpdate({codigo:id},data,{new: true})
+   const updated = await Todo.findByIdAndUpdate(id,data,{new: true})
    return updated
 }
 
 async function findAll(){
-   return await Todo.find()
+   return await Todo.find({},{created_at:0, update_at:0})
 }
 
  module.exports = {

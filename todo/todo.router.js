@@ -2,7 +2,6 @@ const express = require('express');
 //const { object } = require('joi');
 const router = express.Router();
 const controller = require('./todo.controller')
-const validator = require('./todo.validations')
 //const Joi = require('joi');
 
 
